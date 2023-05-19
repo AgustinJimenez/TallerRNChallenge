@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {
   createDrawerNavigator,
+  DrawerContentComponentProps,
   DrawerContentScrollView,
   DrawerItem,
 } from '@react-navigation/drawer';
@@ -23,7 +24,7 @@ const DrawerDivider = () => <View style={styles.drawerDivider} />;
 
 const ScreenHeader = () => null;
 
-const DrawerContent = (props: any) => {
+const DrawerContent = (props: DrawerContentComponentProps) => {
   return (
     <DrawerContentScrollView
       {...props}
