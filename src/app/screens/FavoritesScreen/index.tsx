@@ -1,7 +1,12 @@
 import React from 'react';
-import {View} from 'react-native';
+import {SafeAreaView} from 'react-native';
+import SingleTitle from '../../../components/ui/atoms/SingleTitle';
 const FavoritesScreen = () => {
-  return <View>{/*  */}</View>;
+  return (
+    <SafeAreaView>
+      <SingleTitle>Favorites</SingleTitle>
+    </SafeAreaView>
+  );
 };
 
 export default FavoritesScreen;

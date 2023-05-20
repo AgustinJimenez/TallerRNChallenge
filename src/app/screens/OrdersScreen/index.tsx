@@ -1,7 +1,13 @@
 import React from 'react';
-import {View} from 'react-native';
+import {SafeAreaView} from 'react-native';
+import SingleTitle from '../../../components/ui/atoms/SingleTitle';
+
 const OrdersScreen = () => {
-  return <View>{/*  */}</View>;
+  return (
+    <SafeAreaView>
+      <SingleTitle>Orders</SingleTitle>
+    </SafeAreaView>
+  );
 };
 
 export default OrdersScreen;

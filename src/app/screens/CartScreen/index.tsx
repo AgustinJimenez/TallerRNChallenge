@@ -1,8 +1,13 @@
 import React from 'react';
-import {View} from 'react-native';
+import {SafeAreaView} from 'react-native';
+import SingleTitle from '../../../components/ui/atoms/SingleTitle';
 
 const CartScreen = () => {
-  return <View>{/*  */}</View>;
+  return (
+    <SafeAreaView>
+      <SingleTitle>CART</SingleTitle>
+    </SafeAreaView>
+  );
 };
 
 export default CartScreen;

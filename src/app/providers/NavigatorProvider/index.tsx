@@ -5,9 +5,9 @@ import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
   DrawerItem,
+  DrawerNavigationOptions,
 } from '@react-navigation/drawer';
 import {createStackNavigator} from '@react-navigation/stack';
-import Animated from 'react-native-reanimated';
 import {NavigationContainer} from '@react-navigation/native';
 import HomeScreen from '../../screens/HomeScreen';
 import FavoritesScreen from '../../screens/FavoritesScreen';
@@ -16,19 +16,30 @@ import CartScreen from '../../screens/CartScreen';
 import SignOutScreen from '../../screens/SignOutScreen';
 import styles from './styles';
 import DrawerHeader from '../../../components/ui/molecules/DrawerHeader';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import ContactScreen from '../../screens/ContactScreen';
+import Animated from 'react-native-reanimated';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const DrawerDivider = () => <View style={styles.drawerDivider} />;
 
 const ScreenHeader = () => null;
 
+const defaultDrawerNavOptions: DrawerNavigationOptions = {
+  headerTransparent: true,
+  headerTitle: '',
+  headerLeft: DrawerHeader,
+  drawerStyle: styles.drawerStyle,
+};
+
 const DrawerContent = (props: DrawerContentComponentProps) => {
   return (
     <DrawerContentScrollView
       {...props}
-      style={styles.drawerStyles}
+      style={[styles.drawerStyles /* animatedStyle */]}
       scrollEnabled={false}>
       <Text style={styles.drawerTitleStyle}>BEKA</Text>
       {[
@@ -65,23 +76,45 @@ const DrawerContent = (props: DrawerContentComponentProps) => {
     </DrawerContentScrollView>
   );
 };
-
-const defaultScreenOptions = {
-  headerTransparent: true,
-  headerTitle: '',
-  headerLeft: DrawerHeader,
+const HomeStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{header: ScreenHeader}}>
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="FavoritesScreen" component={FavoritesScreen} />
+      <Stack.Screen name="OrdersScreen" component={OrdersScreen} />
+      <Stack.Screen name="CartScreen" component={CartScreen} />
+      <Stack.Screen name="SignOutScreen" component={SignOutScreen} />
+    </Stack.Navigator>
+  );
 };
 
-const Screens = ({style}: any) => {
+const TabNavigator = () => {
   return (
-    <Animated.View style={[styles.stack, style]}>
-      <Stack.Navigator screenOptions={defaultScreenOptions}>
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="FavoritesScreen" component={FavoritesScreen} />
-        <Stack.Screen name="OrdersScreen" component={OrdersScreen} />
-        <Stack.Screen name="CartScreen" component={CartScreen} />
-        <Stack.Screen name="SignOutScreen" component={SignOutScreen} />
-      </Stack.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Tab.Screen name="Home" component={HomeStack} />
+      <Tab.Screen name="Contact" component={ContactScreen} />
+    </Tab.Navigator>
+  );
+};
+
+const DrawerNavigator = () => {
+  return (
+    <Animated.View
+      style={[
+        {
+          flex: 1,
+        },
+      ]}>
+      <Drawer.Navigator
+        backBehavior="none"
+        drawerContent={DrawerContent}
+        screenOptions={defaultDrawerNavOptions}>
+        <Drawer.Screen name="Home" component={TabNavigator} />
+        <Drawer.Screen name="Contact" component={ContactScreen} />
+      </Drawer.Navigator>
     </Animated.View>
   );
 };
@@ -89,16 +122,7 @@ const Screens = ({style}: any) => {
 const NavigatorProvider = ({children}: any) => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator
-        screenOptions={{
-          header: ScreenHeader,
-          drawerStyle: styles.drawerStyle,
-          drawerActiveBackgroundColor: 'red',
-        }}
-        backBehavior="none"
-        drawerContent={DrawerContent}>
-        <Drawer.Screen name="Screens" children={Screens} />
-      </Drawer.Navigator>
+      <DrawerNavigator />
       {children}
     </NavigationContainer>
   );
