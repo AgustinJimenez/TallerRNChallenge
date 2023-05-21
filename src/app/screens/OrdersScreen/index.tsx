@@ -1,11 +1,11 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import SingleTitle from '../../../components/ui/atoms/SingleTitle';
+import TopBar from '../../../components/ui/molecules/TopBar';
 
 const OrdersScreen = () => {
   return (
     <SafeAreaView>
-      <SingleTitle>Orders</SingleTitle>
+      <TopBar>Orders</TopBar>
     </SafeAreaView>
   );
 };

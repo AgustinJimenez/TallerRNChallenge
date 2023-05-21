@@ -1,11 +1,11 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import SingleTitle from '../../../components/ui/atoms/SingleTitle';
+import TopBar from '../../../components/ui/molecules/TopBar';
 
 const HomeScreen = () => {
   return (
     <SafeAreaView>
-      <SingleTitle>START</SingleTitle>
+      <TopBar>START</TopBar>
     </SafeAreaView>
   );
 };

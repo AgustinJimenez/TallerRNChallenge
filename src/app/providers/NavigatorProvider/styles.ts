@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   drawerStyle: {
+    flex: 1,
     backgroundColor: colors.primary,
     borderTopLeftRadius: 40,
   },
@@ -48,6 +49,13 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 20,
     color: colors.white,
+  },
+  drawerLblActiveStyle: {
+    color: colors.fire(),
+  },
+  drawerActiveContainerStyle: {
+    backgroundColor: colors.fire(0.2),
+    borderRadius: 12,
   },
   drawerTitleStyle: {
     color: colors.white,

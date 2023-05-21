@@ -1,10 +1,11 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import SingleTitle from '../../../components/ui/atoms/SingleTitle';
+import TopBar from '../../../components/ui/molecules/TopBar';
+
 const FavoritesScreen = () => {
   return (
     <SafeAreaView>
-      <SingleTitle>Favorites</SingleTitle>
+      <TopBar>Favorites</TopBar>
     </SafeAreaView>
   );
 };

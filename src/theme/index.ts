@@ -5,4 +5,5 @@ export const colors = {
   white: 'white',
   black: 'black',
   transparent: 'transparent',
+  fire: (o = 1) => `rgba(221, 54, 28, ${o})`,
 };

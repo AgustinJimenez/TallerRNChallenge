@@ -1,10 +1,12 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {SafeAreaView} from 'react-native';
+import TopBar from '../../../components/ui/molecules/TopBar';
+
 const ContactScreen = () => {
   return (
-    <View>
-      <Text>CONTACTS</Text>
-    </View>
+    <SafeAreaView>
+      <TopBar>Contacts</TopBar>
+    </SafeAreaView>
   );
 };
 

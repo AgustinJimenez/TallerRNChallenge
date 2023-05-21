@@ -5,7 +5,7 @@ import {colors} from '../../../theme';
 const styles = StyleSheet.create({
   title: {
     color: colors.lightDark,
-    marginHorizontal: '20%',
+    marginHorizontal: 10,
     marginTop: 5,
     fontWeight: '600',
     fontSize: 23,

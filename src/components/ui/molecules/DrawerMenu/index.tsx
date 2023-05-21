@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const DrawerHeader = () => {
+const DrawerMenu = () => {
   const navigation = useNavigation();
 
   const openDrawer = () => navigation.dispatch(DrawerActions.openDrawer());
@@ -22,4 +22,4 @@ const DrawerHeader = () => {
   );
 };
 
-export default DrawerHeader;
+export default DrawerMenu;
