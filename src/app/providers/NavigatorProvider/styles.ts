@@ -28,12 +28,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.44,
     shadowRadius: 10.32,
     elevation: 5,
-    overflow: 'hidden',
   },
-  drawerStyles: {
+  drawerContentContainerStyles: {
     flex: 1,
     marginLeft: 30,
     marginTop: 30,
+    backgroundColor: 'transparent',
+    overflow: 'visible',
+    zIndex: 0,
   },
   drawerStyle: {
     flex: 1,

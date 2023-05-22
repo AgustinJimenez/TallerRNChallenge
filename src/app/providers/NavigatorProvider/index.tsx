@@ -32,15 +32,20 @@ const DrawerDivider = () => <View style={styles.drawerDivider} />;
 const ScreenHeader = () => null;
 
 const defaultDrawerNavOptions: DrawerNavigationOptions = {
-  headerTransparent: true,
-  headerTitle: '',
   headerShown: false,
   drawerStyle: styles.drawerStyle,
+  drawerContentContainerStyle: {
+    backgroundColor: 'transparent',
+  },
+  drawerContentStyle: {
+    backgroundColor: 'transparent',
+  },
   overlayColor: 'transparent',
   drawerType: 'back',
   sceneContainerStyle: {
     backgroundColor: 'transparent',
-    overflow: 'visible',
+    // borderColor: 'red',
+    // borderWidth: 1,
   },
 };
 
@@ -82,7 +87,7 @@ const DrawerContent = (props: DrawerContentComponentProps) => {
   return (
     <DrawerContentScrollView
       {...props}
-      contentContainerStyle={[styles.drawerStyles]}
+      contentContainerStyle={[styles.drawerContentContainerStyles]}
       scrollEnabled={false}>
       <Text style={styles.drawerTitleStyle}>BEKA</Text>
       {screenList
@@ -116,7 +121,10 @@ const DrawerContent = (props: DrawerContentComponentProps) => {
 };
 const HomeStack = () => {
   return (
-    <Stack.Navigator screenOptions={{header: ScreenHeader}}>
+    <Stack.Navigator
+      screenOptions={{
+        header: ScreenHeader,
+      }}>
       {screenList.map(({name, component}) => (
         <Stack.Screen key={name} name={name} component={component} />
       ))}
@@ -152,7 +160,11 @@ const TabNavigator = () => {
       style={[
         {
           flex: 1,
-          overflow: 'hidden',
+          borderRadius: 20,
+          // backgroundColor: 'red',
+          // borderColor: 'blue',
+          // borderWidth: 1,
+          zIndex: 2,
         },
         animaatedRotStyle,
       ]}>

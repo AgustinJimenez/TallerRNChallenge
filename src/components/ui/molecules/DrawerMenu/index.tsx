@@ -1,13 +1,15 @@
 import React from 'react';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
-import {Image, StyleSheet, TouchableOpacity} from 'react-native';
-import MenuIconImg from '../../atoms/MenuItemImg';
+import {StyleSheet, TouchableOpacity} from 'react-native';
+import MenuIcon from '../../atoms/MenuIcon';
+import {colors} from '../../../../theme';
 
 const styles = StyleSheet.create({
   menu: {
     width: 38,
     height: 38,
     margin: 20,
+    color: colors.lightDark2,
   },
 });
 
@@ -17,7 +19,7 @@ const DrawerMenu = () => {
   const openDrawer = () => navigation.dispatch(DrawerActions.openDrawer());
   return (
     <TouchableOpacity onPress={openDrawer}>
-      <Image source={MenuIconImg} style={styles.menu} />
+      <MenuIcon size={35} style={styles.menu} />
     </TouchableOpacity>
   );
 };
